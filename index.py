@@ -15,7 +15,8 @@ if "data" in data:
         match_id = match["id"]
         match_record = db.get_match_by_id(conn, match_id)
         if match_record:
-            print("match recourd found!")
+            print("  kills: %i" % match_record["kills"])
+            print("  winPlace: %i" % match_record["rank"])
         else:
             match_resp = api.pubg_api_match_data(match_id)
             if "included" in match_resp:
